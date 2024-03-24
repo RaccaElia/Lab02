@@ -7,19 +7,25 @@ while(True):
 
     t.printMenu()
 
-    t.loadDictionary("filename.txt")
+    t.loadDictionary("dictionary.txt")
 
     txtIn = input()
 
     # Add input control here!
 
     if int(txtIn) == 1:
-        print()
-        txtIn = input()
-        pass
+        termine = input("Quale parola vuoi aggiungere?")
+        print(termine.split(" "))
+        t.handleAdd(termine.split(" ", 1))
+        print("Aggiunta!")
     if int(txtIn) == 2:
-        pass
+        termine = input("Quale parola vuoi tradurre?")
+        print(t.handleTranslate(termine))
     if int(txtIn) == 3:
-        pass
+        termine = input("Inserisci la wild card: ")
+        wild = t.handleWildCard(termine)
+        print(wild[0])
+        if len(wild)>1:
+            print(wild[1])
     if int(txtIn) == 4:
         break
